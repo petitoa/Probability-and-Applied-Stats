@@ -16,7 +16,12 @@ public class testStatsLibrary {
         testNumbers.add(7.0);
 
         double testerResults = test.findMean(testNumbers);
+        double medianResults = test.findMedian(testNumbers);
+        double standardDeviation = test.standardDeviation(testNumbers);
+
         System.out.println("This is the average of test numbers: " + testerResults);
+        System.out.println("This is the median of test numbers: " + medianResults);
+        System.out.println("This is the standard deviation of test numbers: " + standardDeviation);
 
     }
 }
