@@ -1,30 +1,17 @@
-/** Extend this class
+/**
+ * Extend this class
  * Write formula for what we learn
  * Alexis Petito
  */
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class StatsLibrary {
-    //Mean, Method
-
-    //Default constructor
-    //public StatsLibrary(){
-
-    //}
-
-    //Non-Empty
-    //public StatsLibrary(String input){
-
-    //}
-
-    //public StatsLibrary(Integer partyTime){
-
-    //}
-    public double findMean(ArrayList<Double> userInputNumbers){
+    public double findMean(ArrayList<Double> userInputNumbers) {
         double sum = 0;
 
-        for(double singleElement : userInputNumbers){
+        for (double singleElement : userInputNumbers) {
             sum = sum + singleElement;
 
         }
@@ -35,48 +22,78 @@ public class StatsLibrary {
     }
 
     //Find Median
-    public double findMedian(ArrayList<Double> userInputNumbers){
+    public double findMedian(ArrayList<Double> userInputNumbers) {
         Collections.sort(userInputNumbers);
         int size = userInputNumbers.size();
         double median;
 
-        if(size % 2 == 0){
-            double middle1 = userInputNumbers.get((size/2) + 1);
-            double middle2 = userInputNumbers.get((size/2) - 1);
+        //if array is even find average of middle values else get middle value
+        if (size % 2 == 0) {
+            double middle1 = userInputNumbers.get((size / 2) + 1);
+            double middle2 = userInputNumbers.get((size / 2) - 1);
             median = (middle1 + middle2) / 2;
         } else {
             median = userInputNumbers.get(size / 2);
         }
-    return median;
+        return median;
     }
+
     //Find Mode
-    //public double findMode(ArrayList<Double> userInputNumbers){
-        //double mode;
-        //for(double singleElement : userInputNumbers){
-            //sum = sum + singleElement;
-            //return sum;
-        //}
-    //}
+    //Checks when there is no mode
+    public double findMode(ArrayList<Double> userInputNumbers) {
+        Collections.sort(userInputNumbers);
+        ArrayList<Double> modes = new ArrayList<>();
+
+        int highestCount = 0;
+        // iterate through sorted list starting at index 0
+        for (Double currentNumber : userInputNumbers) {
+            int count = 0;
+            // compare to numbers increase count accordingly
+            for (Double number : userInputNumbers) {
+                if (currentNumber.equals(number)) {
+                    count++;
+                }
+            }
+
+            if (count > highestCount) {
+                highestCount = count;
+                modes.clear(); // Clear the list for higher count
+                modes.add(currentNumber); // Add the new mode
+                //if the there is a tie between the highest count and count / it's not a duplicate mode
+            } else if (count == highestCount && !modes.contains(currentNumber)) {
+                modes.add(currentNumber); // Add to list of modes
+            }
+        }
+
+        //If there are no numbers that occur more than once or 2 numbers occur the same amount of times greater than 1 return not a number (no mode)
+        if (highestCount == 0 || modes.size() > 1) {
+            return Double.NaN;
+        }
+
+        return modes.get(0);
+    }
+
+
     //Standard deviation from list
-    public double standardDeviation(ArrayList<Double> userInputNumbers){
+    public double standardDeviation(ArrayList<Double> userInputNumbers) {
         double mean = findMean(userInputNumbers);
 
         ArrayList<Double> subtractMean = new ArrayList<>();
         //Subtract mean from each data point
-        for(double singleElement : userInputNumbers){
+        for (double singleElement : userInputNumbers) {
             subtractMean.add(singleElement - mean);
         }
 
         ArrayList<Double> squareDeviations = new ArrayList<>();
         //Square each deviation
-        for(double singleElement : subtractMean){
+        for (double singleElement : subtractMean) {
             squareDeviations.add(singleElement * singleElement);
         }
 
         int sizeMinus1 = squareDeviations.size() - 1;
         double sum = 0;
         //Sum squared deviations
-        for(double singleElement : squareDeviations){
+        for (double singleElement : squareDeviations) {
             sum = sum + singleElement;
         }
 
