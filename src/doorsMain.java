@@ -4,7 +4,6 @@
  * E1 = nice prize, E2 = Dud1, E3 = Dud3
  * P(E1) = 1/3, P(E2) = 1/3, P(E3) = 1/3
  * Probability that the contestant selects curtain hiding nice prize = P(E1) = 1/3
- *
  * Question B.)
  * In part a it is shown that the probability of the good prize is 1/3
  * In the event that one Dud is removed and you are asked to choose again the probability would become
