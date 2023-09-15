@@ -1,5 +1,5 @@
-import java.sql.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Person {
     int birthday;
