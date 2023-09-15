@@ -1,28 +1,45 @@
-import java.util.Random;
+import java.sql.Array;
+import java.util.*;
 
-//determine probability of any 2 people sharing a birthday in the class
-//20 people
-// learn git workflow 1 page single space essay off atlassian
-// clone someone else's repo and commit code to their repo print a screen shot of the change log showing the changes you made to someone else's repository.
 public class Person {
-    int id;
     int birthday;
 
 
-    public Person(int id, int birthday) {
-        this.id = id;
-        this.birthday = birthday;
-
-    }
-
-
-    public int setBirthday(int id){
+    public int randomBirthday() {
         Random random = new Random();
-        for(int people : id){
-            this.birthday = random.nextInt(365);
-        }
+        birthday = random.nextInt(1, 365);
+        return birthday;
     }
 
+    public ArrayList<Integer> setBirthdays(int people) {
+        ArrayList<Integer> birthdays = new ArrayList<>();
+        for (int i = 0; i < people; i++) {
+            birthdays.add(randomBirthday());
+        }
+        return birthdays;
+    }
+
+    public double birthdayProblem(int people, int iterations) {
+        int matchingBirthdays = 0;
+        for (int i = 0; i < iterations; i++) {
+            // Create ArrayList with random birthdays for number of people
+            ArrayList<Integer> birthdays = setBirthdays(people);
+            // ArrayList of encountered birthdays
+            ArrayList<Integer> encounteredBirthdays = new ArrayList<>();
+            // Iterate through birthdays ArrayList
+            for (Integer birthday : birthdays) {
+                // If the current birthday is found in encounteredBirthdays
+                if (encounteredBirthdays.contains(birthday)) {
+                    matchingBirthdays++;
+                    break; // stop when you find match
+                }
+                encounteredBirthdays.add(birthday);
+
+            }
 
 
+        }
+
+        return ((double) matchingBirthdays / iterations) * 100;
+    }
 }
