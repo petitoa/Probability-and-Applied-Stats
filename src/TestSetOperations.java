@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class testSetOperations {
+public class TestSetOperations {
 
     public static void main(String[] args) {
-        setOperations test = new setOperations();
+        SetOperations test = new SetOperations();
 
         ArrayList<String> daysOfTheWeek = new ArrayList<>();
 

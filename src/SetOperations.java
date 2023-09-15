@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class setOperations {
+public class SetOperations {
     public ArrayList<String> findUnion(ArrayList<String> daysOfTheWeek, ArrayList<String> subsetA) {
         ArrayList<String> union = new ArrayList<>();
 

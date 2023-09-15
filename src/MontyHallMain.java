@@ -14,9 +14,9 @@
  */
 
 
-public class montyHallMain {
+public class MontyHallMain {
     public static void main(String[] args) {
-        montyHall test = new montyHall();
+        MontyHall test = new MontyHall();
 
         double doorNotChangedResult = test.doorNotChanged();
         double doorChangedResult = test.doorChanged();

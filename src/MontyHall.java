@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class montyHall {
+public class MontyHall {
     public static ArrayList<Integer> assignGoatsAndCarDoors() {
         ArrayList<Integer> doors = new ArrayList<>(3);
         int goat = 0;
