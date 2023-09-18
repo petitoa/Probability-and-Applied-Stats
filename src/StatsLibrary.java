@@ -107,14 +107,15 @@ public class StatsLibrary {
             return BigInteger.ONE;
         } else {
             BigInteger factorial = BigInteger.ONE;
-            for (int i = 1; i < num; i++) {
+            for (int i = 1; i <= num; i++) {
                 factorial = factorial.multiply(BigInteger.valueOf(i));
             }
             return factorial;
         }
     }
 
-    public BigInteger combinations(int objects, int times){
+    public BigInteger combinations(int objects, int times) {
+
         BigInteger objectsFactorial = factorial(objects);
         BigInteger timesFactorial = factorial(times);
 
@@ -129,7 +130,17 @@ public class StatsLibrary {
         return numerator.divide(denominator);
     }
 
-    public BigInteger permutations(int objects, int num){
+    public BigInteger permutations(int objects, int objectsSelected) {
+
         BigInteger objectsFactorial = factorial(objects);
+
+        int objectsMinusObjectsSelected = objects - objectsSelected;
+
+        BigInteger denominatorFactorial = factorial(objectsMinusObjectsSelected);
+
+        BigInteger numerator = objectsFactorial;
+        BigInteger denominator = denominatorFactorial;
+
+        return numerator.divide(denominator);
     }
 }
