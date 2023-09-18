@@ -4,6 +4,7 @@
  * Alexis Petito
  */
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -99,5 +100,36 @@ public class StatsLibrary {
 
         //Divide the sum by one less than the number of data points and return square root of result
         return Math.sqrt(sum / sizeMinus1);
+    }
+
+    public BigInteger factorial(int num) {
+        if (num == 0) {
+            return BigInteger.ONE;
+        } else {
+            BigInteger factorial = BigInteger.ONE;
+            for (int i = 1; i < num; i++) {
+                factorial = factorial.multiply(BigInteger.valueOf(i));
+            }
+            return factorial;
+        }
+    }
+
+    public BigInteger combinations(int objects, int times){
+        BigInteger objectsFactorial = factorial(objects);
+        BigInteger timesFactorial = factorial(times);
+
+        int objectsMinusTimes = objects - times;
+
+        BigInteger objectsMinusTimesFactorial = factorial(objectsMinusTimes);
+
+        BigInteger numerator = objectsFactorial;
+        BigInteger denominator = timesFactorial.multiply(objectsMinusTimesFactorial);
+
+
+        return numerator.divide(denominator);
+    }
+
+    public BigInteger permutations(int objects, int num){
+        BigInteger objectsFactorial = factorial(objects);
     }
 }
