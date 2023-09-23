@@ -9,7 +9,7 @@ public class Factory {
     ArrayList<String> color = new ArrayList<>();
     Random random = new Random();
 
-    public Factory(){
+    public Factory() {
         //Add car types to array
         carType.add("Hatchback");
         carType.add("SUV");
@@ -30,22 +30,23 @@ public class Factory {
 
     }
 
-    public int getRandomYear(){
-        return random.nextInt(1973,2023 + 1);
+    public int getRandomYear() {
+        return random.nextInt(1973, 2023 + 1);
     }
 
-    public int getRandomMiles(){
+    public int getRandomMiles() {
         return random.nextInt(0, 250000 + 1);
     }
 
-    public String getRandomCarType(){
-        return carType.get(random.nextInt(carType.size() +1));
+    public String getRandomCarType() {
+        return carType.get(random.nextInt(carType.size()));
     }
 
-    public String getRandomColor(){
-        return color.get(random.nextInt(color.size() + 1));
+    public String getRandomColor() {
+        return color.get(random.nextInt(color.size()));
     }
-    ArrayList<Car> createCar(int numOfCars) {
+
+    ArrayList<Car> createCars(int numOfCars) {
         ArrayList<Car> cars = new ArrayList<>();
         for (int i = 0; i < numOfCars; i++) {
             String carType = getRandomCarType();
@@ -57,7 +58,4 @@ public class Factory {
         return cars;
     }
 
-    def writeToCsv(){
-
-    }
 }
