@@ -3,7 +3,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class WriteToCsv {
+public class CarCsvWriter {
     public static void main(String[] args) {
         Factory test = new Factory();
 

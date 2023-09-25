@@ -143,4 +143,33 @@ public class StatsLibrary {
 
         return numerator.divide(denominator);
     }
+
+    public double independentIntersection(){
+        return 0.2;
+    }
+
+    public double dependentIntersection(){
+        return 0.2;
+    }
+    
+    public double exclusiveUnion(){
+        return 0.2;
+    }
+    
+    public double notExclusiveUnion(){
+        return 0.2;
+    }
+    
+    public boolean determineIndependence(){
+        boolean True = false;
+        return True;
+    }
+    
+    public boolean determinedDependent(){
+        boolean True = false;
+        return True;
+    }
+
+
+
 }
