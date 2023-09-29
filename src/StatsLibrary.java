@@ -144,32 +144,30 @@ public class StatsLibrary {
         return numerator.divide(denominator);
     }
 
-    public double independentIntersection(){
-        return 0.2;
+    public double independentIntersection(double a, double b) {
+        return a * b;
     }
 
-    public double dependentIntersection(){
-        return 0.2;
-    }
-    
-    public double exclusiveUnion(){
-        return 0.2;
-    }
-    
-    public double notExclusiveUnion(){
-        return 0.2;
-    }
-    
-    public boolean determineIndependence(){
-        boolean True = false;
-        return True;
-    }
-    
-    public boolean determinedDependent(){
-        boolean True = false;
-        return True;
+    public double dependentIntersection(double a, double bGivenA) {
+        return a * bGivenA;
     }
 
+    public double exclusiveUnion(double a, double b, double aAndB) {
+        double union = a + b;
+        return union * (1 - aAndB);
+    }
 
+    public double notExclusiveUnion(double a, double b, double aAndB) {
 
+        return a + b - aAndB;
+    }
+
+    public String determineIndependenceOrDependent(double a, double b, double aAndB) {
+        if (a * b == aAndB) {
+            return "They are independent.";
+        } else {
+            return "They are dependent.";
+        }
+
+    }
 }
