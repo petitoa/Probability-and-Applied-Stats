@@ -1,15 +1,14 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.io.BufferedWriter;
 
 //when choosing random numbers skew the miles in car
-public class Factory {
+public class CarFactory {
 
     ArrayList<String> carType = new ArrayList<>();
     ArrayList<String> color = new ArrayList<>();
     Random random = new Random();
 
-    public Factory() {
+    public CarFactory() {
         //Add car types to array
         carType.add("Hatchback");
         carType.add("SUV");

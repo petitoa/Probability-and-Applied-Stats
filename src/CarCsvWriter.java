@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class CarCsvWriter {
     public static void main(String[] args) {
-        Factory test = new Factory();
+        CarFactory test = new CarFactory();
 
         ArrayList<Car> cars = test.createCars(1000);
 
