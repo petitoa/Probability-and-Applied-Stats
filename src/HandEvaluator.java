@@ -218,19 +218,23 @@ public class HandEvaluator {
     public boolean hasStraightFlush(ArrayList<Card> hand) {
         return hasStraight(hand) && hasFlush(hand);
     }
+
     public boolean hasRoyalFlush(ArrayList<Card> hand) {
+        return hasStraight(hand) && hasFlush(hand);
+    }
+
+    public boolean hasHighCard(ArrayList<Card> hand) {
         ArrayList<Integer> valuesEncountered = new ArrayList<>();
 
         for (Card card : hand) {
-
-            int value = card.getValue();
+            int value = card.getValue(); // Collect card values, not suits
             valuesEncountered.add(value);
         }
 
-        boolean highestCardIsAce = valuesEncountered.get(valuesEncountered.size() - 1) == 12;
+        Collections.sort(valuesEncountered);
 
-        // requires both a straight and a flush, but with Ace as the highest card
-        return (hasFlush(hand) && hasFlush(hand) && highestCardIsAce);
+        // Check if the highest card value is Ace (value 12)
+        return valuesEncountered.get(valuesEncountered.size() - 1) == 12;
     }
 
     public double calculatePercentage(ArrayList<Integer> toBeCounted, int numOfHands) {
@@ -253,6 +257,7 @@ public class HandEvaluator {
         ArrayList<Integer> fullHouse = new ArrayList<>();
         ArrayList<Integer> straightFlush = new ArrayList<>();
         ArrayList<Integer> royalFlush = new ArrayList<>();
+        ArrayList<Integer> highCard = new ArrayList<>();
 
         for (ArrayList<Card> hand : hands) {
             if (hasPair(hand)) {
@@ -279,6 +284,9 @@ public class HandEvaluator {
             if (hasRoyalFlush(hand)) {
                 royalFlush.add(1);
             }
+            if (hasHighCard(hand)) {
+                highCard.add(1);
+            }
         }
 
 
@@ -290,6 +298,7 @@ public class HandEvaluator {
         double percentageFullHouse = calculatePercentage(fullHouse, numOfHands);
         double percentageStraightFlush = calculatePercentage(straightFlush, numOfHands);
         double percentageRoyalFlush = calculatePercentage(royalFlush, numOfHands);
+        double percentageHighCard = calculatePercentage(highCard, numOfHands);
 
         // Print the percentages
         String result = "Percentage of Pair: " + String.format("%.6f", percentagePair) + "%\n" +
@@ -299,7 +308,8 @@ public class HandEvaluator {
                 "Percentage of Flush: " + String.format("%.6f", percentageFlush) + "%\n" +
                 "Percentage of Full House: " + String.format("%.6f", percentageFullHouse) + "%\n" +
                 "Percentage of Straight Flush: " + String.format("%.6f", percentageStraightFlush) + "%\n" +
-                "Percentage of Royal Flush: " + String.format("%.6f", percentageRoyalFlush) + "%\n";
+                "Percentage of Royal Flush: " + String.format("%.6f", percentageRoyalFlush) + "%\n" +
+                "Percentage of High Card: " + String.format("%.6f", percentageHighCard) + "%\n";
 
         return result;
     }
