@@ -1,7 +1,10 @@
+package CarFactory;
+
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 public class CarCsvWriter {
     public static void main(String[] args) {

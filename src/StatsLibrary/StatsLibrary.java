@@ -3,6 +3,7 @@
  * Write formula for what we learn
  * Alexis Petito
  */
+package StatsLibrary;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

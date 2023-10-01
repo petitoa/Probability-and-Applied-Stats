@@ -12,7 +12,7 @@
  * EX.) P(E1) + P(E2) = 2/3 because the game show host removing a dud acts as another pick
  * if you switch the curtain the probability becomes 2/3, so switching the doors is the best choice.
  */
-
+package MontyHallProblem;
 
 public class MontyHallMain {
     public static void main(String[] args) {

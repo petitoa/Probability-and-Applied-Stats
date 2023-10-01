@@ -1,3 +1,5 @@
+package BirthdayChecker;
+
 public class TestPerson {
     public static void main(String[] args) {
         Person test = new Person();

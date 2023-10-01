@@ -1,3 +1,4 @@
+package CarFactory;
 public class Car {
     private String carType;
     private int year;
