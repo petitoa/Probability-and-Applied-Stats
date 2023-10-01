@@ -25,6 +25,7 @@ public class TestStatsLibrary {
         double standardDeviation = test.standardDeviation(testNumbers);
         double modeResults = test.findMode(testNumbers);
 
+        BigInteger factorialResults = test.factorial(5);
         BigInteger combinationResults = test.combinations(13, 5);
         BigInteger permutationResults = test.permutations(10, 5);
 
@@ -34,23 +35,30 @@ public class TestStatsLibrary {
         double notExclusiveUnionResults = test.notExclusiveUnion(0.5, 0.4, 0.7);
         String independentOrDependentResults = test.determineIndependenceOrDependent(0.3, 0.5, 0.15);
 
-        System.out.println("This is the average of test numbers: " + meanResults);
-        System.out.println("This is the median of test numbers: " + medianResults);
-        System.out.println("This is the standard deviation of test numbers: " + standardDeviation);
-        System.out.println("This is the number of the combination n objects r times: " + combinationResults);
-        System.out.println("This is the number of permutations in n objects with r objects selected: " + permutationResults);
+        double conditionalProbabilityResults = test.conditionalProbability(.3, .5);
+        double bayesTheoremResults = test.bayesTheorem(.2, .4, .1);
+
+        System.out.println("The mean of the test numbers: " + meanResults);
+        System.out.println("The median of the test numbers: " + medianResults);
+        System.out.println("The standard deviation of the test numbers: " + standardDeviation);
+        System.out.println("The factorial of the test number: " + factorialResults);
+        System.out.println("The number of the combination n objects r times: " + combinationResults);
+        System.out.println("The number of permutations in n objects with r objects selected: " + permutationResults);
 
         if (Double.isNaN(modeResults)) {
             System.out.println("There is no mode for these test numbers");
         } else {
-            System.out.println("This is the mode for the test numbers: " + modeResults);
+            System.out.println("The mode for the test numbers: " + modeResults);
         }
 
-        System.out.println("This is the independent intersection of test numbers: " + independentIntersectionResults);
-        System.out.println("This is the dependent intersection of test numbers: " + dependentIntersectionResults);
-        System.out.println("This is the exclusive union of test numbers: " + exclusiveUnionResults);
-        System.out.println("This is the not exclusive union of test numbers: " + notExclusiveUnionResults);
+        System.out.println("The independent intersection of the test numbers: " + independentIntersectionResults);
+        System.out.println("The dependent intersection of the test numbers: " + dependentIntersectionResults);
+        System.out.println("The exclusive union of the test numbers: " + exclusiveUnionResults);
+        System.out.println("The not exclusive union of the test numbers: " + notExclusiveUnionResults);
         System.out.println("Are the test numbers independent or dependent? " + independentOrDependentResults);
+
+        System.out.println("The conditional probability of P(A and B) & P(B)? " + conditionalProbabilityResults);
+        System.out.println("The Bayes Theorem result is? " + bayesTheoremResults);
 
     }
 }

@@ -171,4 +171,12 @@ public class StatsLibrary {
         }
 
     }
+
+    public double conditionalProbability(double aAndB, double b) {
+        return aAndB / b;
+    }
+
+    public double bayesTheorem(double a, double b, double aGivenB) {
+        return aGivenB * a / b;
+    }
 }
