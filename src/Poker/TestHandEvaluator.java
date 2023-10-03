@@ -7,7 +7,7 @@ public class TestHandEvaluator {
     public static void main(String[] args) {
         HandEvaluator test = new HandEvaluator();
 
-        ArrayList<String> testHandDrawnResult = test.testDrawHand();
+        ArrayList<String> testHandDrawnResult = test.testDrawHand(5);
 
         // first param numOfHands second param handSize
         String testEvaluateHands = test.evaluateHands(200000, 5);

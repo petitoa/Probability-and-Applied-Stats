@@ -58,8 +58,8 @@ public class HandEvaluator {
     }
 
 
-    public ArrayList<String> testDrawHand() {
-        ArrayList<Card> hand = drawHand(5);
+    public ArrayList<String> testDrawHand(int handSize) {
+        ArrayList<Card> hand = drawHand(handSize);
         resetDeck();
 
         // store assigned cards
