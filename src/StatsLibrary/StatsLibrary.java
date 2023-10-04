@@ -179,4 +179,19 @@ public class StatsLibrary {
     public double bayesTheorem(double a, double b, double aGivenB) {
         return aGivenB * a / b;
     }
+
+    public double binomialDistribution(double p, int n, int y) {
+        // calculate p' known as q
+        double q = 1 - p;
+
+        // Calculate the combinations
+        int combinations = combinations(n, y).intValue();
+
+        double pExponentY = Math.pow(p, y);
+        double qExponentNMinusY = Math.pow(q, n - y);
+
+        // Multiply to get Binomial Distribution
+        return combinations * pExponentY * qExponentNMinusY;
+    }
+
 }

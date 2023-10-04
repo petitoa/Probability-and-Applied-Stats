@@ -38,6 +38,8 @@ public class TestStatsLibrary {
         double conditionalProbabilityResults = test.conditionalProbability(.3, .5);
         double bayesTheoremResults = test.bayesTheorem(.2, .4, .1);
 
+        double binomialDistributionResults = test.binomialDistribution(.8, 10, 7);
+
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
         System.out.println("The standard deviation of the test numbers: " + standardDeviation);
@@ -59,6 +61,8 @@ public class TestStatsLibrary {
 
         System.out.println("The conditional probability of P(A and B) & P(B)? " + conditionalProbabilityResults);
         System.out.println("The Bayes Theorem result is? " + bayesTheoremResults);
+
+        System.out.println("The Binomial Distribution is: " + binomialDistributionResults);
 
     }
 }
