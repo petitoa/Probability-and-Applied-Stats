@@ -2,6 +2,11 @@ package Poker;
 
 import java.util.ArrayList;
 
+/**
+ * A test class for evaluating and testing the functionality of the {@link HandEvaluator} class.
+ *
+ * @author petitoa
+ */
 public class TestHandEvaluator {
 
     public static void main(String[] args) {

@@ -1,5 +1,4 @@
 /**
- * Alexis Petito
  * Question A.)
  * E1 = nice prize, E2 = Dud1, E3 = Dud3
  * P(E1) = 1/3, P(E2) = 1/3, P(E3) = 1/3
@@ -14,7 +13,13 @@
  */
 package MontyHallProblem;
 
-public class MontyHallMain {
+/**
+ * The TestMontyHall class runs simulations of the Monty Hall problem.
+ * It prints the probability of winning when the contestant does not switch doors and when they switch doors.
+ *
+ * @author petitoa
+ */
+public class TestMontyHall {
     public static void main(String[] args) {
         MontyHall test = new MontyHall();
 

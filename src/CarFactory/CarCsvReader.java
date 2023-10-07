@@ -5,6 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The CarCsvReader class reads created car data from a CSV file.
+ * It parses the CSV file and creates Car objects from the data.
+ *
+ * @author petitoa
+ */
 public class CarCsvReader {
     public static void main(String[] args) throws FileNotFoundException {
         String filename = "cars.csv";
@@ -14,10 +20,13 @@ public class CarCsvReader {
 
         try (Scanner scanner = new Scanner(file)) {
 
+            // Delimiter set to comma or new line
             scanner.useDelimiter(",|\n");
+
+            // Store and skip the header
             String header = scanner.nextLine();
 
-
+            // Read car data from CSV file and create Car objects
             while (scanner.hasNextLine()) {
                 String carType = scanner.next().trim();
                 int year = Integer.parseInt(scanner.next().trim());
@@ -27,7 +36,10 @@ public class CarCsvReader {
 
             }
 
+            // Print Header
             System.out.println(header);
+
+            // Print Car objects
             for (Car car : cars) {
                 System.out.println(car.getCarType() + "," + car.getYear() + "," + car.getColor() + "," + car.getMiles());
             }

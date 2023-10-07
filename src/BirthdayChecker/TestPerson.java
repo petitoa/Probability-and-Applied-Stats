@@ -1,5 +1,10 @@
 package BirthdayChecker;
 
+/**
+ * A test class for evaluating and testing the functionality of the {@link Person} class to solve the birthday problem.
+ *
+ * @author petitoa
+ */
 public class TestPerson {
     public static void main(String[] args) {
         Person test = new Person();
