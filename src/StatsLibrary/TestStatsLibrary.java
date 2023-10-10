@@ -3,6 +3,11 @@ package StatsLibrary;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
+/**
+ * This class is used for testing the functionality of the StatsLibrary class, which provides various functions for probability and statistics.
+ *
+ * @author petitoa
+ */
 public class TestStatsLibrary {
 
     public static void main(String[] args) {
@@ -38,7 +43,13 @@ public class TestStatsLibrary {
         double conditionalProbabilityResults = test.conditionalProbability(.3, .5);
         double bayesTheoremResults = test.bayesTheorem(.2, .4, .1);
 
+        double binomialExpectedValueResults = test.binomialExpectedValue(10, .2);
+        double binomialVarianceResults = test.binomialVariance(10, .2);
         double binomialDistributionResults = test.binomialDistribution(.8, 10, 7);
+
+        double geometricExpectedValueResults = test.geometricExpectedValue(.2);
+        double geometricVarianceResults = test.geometricVariance(.2);
+        double geometricDistributionResults = test.geometricDistribution(.2, 8);
 
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
@@ -62,7 +73,13 @@ public class TestStatsLibrary {
         System.out.println("The conditional probability of P(A and B) & P(B)? " + conditionalProbabilityResults);
         System.out.println("The Bayes Theorem result is? " + bayesTheoremResults);
 
+        System.out.println("The Binomial Distribution Expected Value is: " + binomialExpectedValueResults);
+        System.out.println("The Binomial Distribution Variance is: " + binomialVarianceResults);
         System.out.println("The Binomial Distribution is: " + binomialDistributionResults);
+
+        System.out.println("The Geometric Distribution Expected Value is: " + geometricExpectedValueResults);
+        System.out.println("The Geometric Distribution Variance is: " + geometricVarianceResults);
+        System.out.println("The Geometric Distribution is: " + geometricDistributionResults);
 
     }
 }

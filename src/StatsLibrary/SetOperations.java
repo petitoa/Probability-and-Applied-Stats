@@ -2,7 +2,20 @@ package StatsLibrary;
 
 import java.util.ArrayList;
 
+/**
+ * This class provides methods for performing set operations on lists of strings.
+ *
+ * @author petitoa
+ */
 public class SetOperations {
+
+    /**
+     * Finds the union of two ArrayLists of strings.
+     *
+     * @param daysOfTheWeek The first ArrayList which is all the days of the week.
+     * @param subsetA       The second ArrayList which is subset a.
+     * @return The union of the two ArrayLists.
+     */
     public ArrayList<String> findUnion(ArrayList<String> daysOfTheWeek, ArrayList<String> subsetA) {
         ArrayList<String> union = new ArrayList<>();
 
@@ -20,6 +33,13 @@ public class SetOperations {
         return union;
     }
 
+    /**
+     * Finds the intersection of two ArrayLists of strings.
+     *
+     * @param daysOfTheWeek The first ArrayList which is all the days of the week.
+     * @param subsetA       The second ArrayList which is subset a.
+     * @return The intersection of the two ArrayLists.
+     */
     public ArrayList<String> findIntersection(ArrayList<String> daysOfTheWeek, ArrayList<String> subsetA) {
         ArrayList<String> intersection = new ArrayList<>();
 
@@ -31,6 +51,13 @@ public class SetOperations {
         return intersection;
     }
 
+    /**
+     * Finds the complement of two ArrayLists of strings.
+     *
+     * @param daysOfTheWeek The first ArrayList which is all the days of the week.
+     * @param subsetA       The second ArrayList which is subset a.
+     * @return The complement of the two ArrayLists.
+     */
     public ArrayList<String> findComplement(ArrayList<String> daysOfTheWeek, ArrayList<String> subsetA) {
         ArrayList<String> complement = new ArrayList<>();
 

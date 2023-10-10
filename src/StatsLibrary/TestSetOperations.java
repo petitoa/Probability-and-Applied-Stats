@@ -2,6 +2,11 @@ package StatsLibrary;
 
 import java.util.ArrayList;
 
+/**
+ * This class is used for testing the SetOperations class, which provides functions to perform set operations on ArrayLists.
+ *
+ * @author petitoa
+ */
 public class TestSetOperations {
 
     public static void main(String[] args) {
