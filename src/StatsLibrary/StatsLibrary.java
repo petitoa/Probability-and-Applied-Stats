@@ -361,5 +361,26 @@ public class StatsLibrary {
         return q / Math.pow(p, 2);
     }
 
+    /**
+     * Calculates the Hypergeometric Distribution given N, n, r, and y.
+     *
+     * @param r           Available type 1 items.
+     * @param y           Selected type 1 items.
+     * @param totalPop    The total population you are choosing from (N).
+     * @param selectedPop The selected population (n).
+     * @return The Hypergeometric Distribution of the given variables
+     */
+    public double hypergeometricDistribution(int r, int y, int totalPop, int selectedPop) {
+
+        double rChooseY = combinations(r, y).doubleValue();
+        double secondNumerator = combinations((totalPop - selectedPop), (selectedPop - y)).doubleValue();
+        double totalPopChooseSelectedPop = combinations(totalPop, selectedPop).doubleValue();
+
+
+        return rChooseY * secondNumerator / totalPopChooseSelectedPop;
+
+
+    }
+
 
 }

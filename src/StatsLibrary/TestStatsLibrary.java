@@ -51,6 +51,8 @@ public class TestStatsLibrary {
         double geometricVarianceResults = test.geometricVariance(.2);
         double geometricDistributionResults = test.geometricDistribution(.2, 8);
 
+        double hypergeometricDistributionResults = test.hypergeometricDistribution(5, 4, 10, 4);
+
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
         System.out.println("The standard deviation of the test numbers: " + standardDeviation);
@@ -80,6 +82,8 @@ public class TestStatsLibrary {
         System.out.println("The Geometric Distribution Expected Value is: " + geometricExpectedValueResults);
         System.out.println("The Geometric Distribution Variance is: " + geometricVarianceResults);
         System.out.println("The Geometric Distribution is: " + geometricDistributionResults);
+
+        System.out.println("This is the Hypergeometric Distribution: " + hypergeometricDistributionResults);
 
     }
 }
