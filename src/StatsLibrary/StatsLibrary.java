@@ -355,7 +355,10 @@ public class StatsLibrary {
      * @return The variance of the geometric distribution.
      */
     public double geometricVariance(double p) {
-        return (1 - p) / Math.pow(p, 2);
+        // calculate p' known as q
+        double q = 1 - p;
+
+        return q / Math.pow(p, 2);
     }
 
 
