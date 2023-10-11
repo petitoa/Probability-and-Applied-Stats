@@ -368,7 +368,7 @@ public class StatsLibrary {
      * @param y           Selected type 1 items.
      * @param totalPop    The total population you are choosing from (N).
      * @param selectedPop The selected population (n).
-     * @return The Hypergeometric Distribution of the given variables
+     * @return The Hypergeometric Distribution of the given variables.
      */
     public double hypergeometricDistribution(int r, int y, int totalPop, int selectedPop) {
 
