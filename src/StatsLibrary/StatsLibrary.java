@@ -390,7 +390,7 @@ public class StatsLibrary {
      * @param y Total number of trials.
      * @return Probability of getting 'r' successes in 'y' trials.
      */
-    public double negativeBinomialDistribution(double p, int r, int y){
+    public double negativeBinomialDistribution(double p, int r, int y) {
         double q = 1 - p;
 
         double combination = combinations((y - 1), (r - 1)).doubleValue();
@@ -405,7 +405,7 @@ public class StatsLibrary {
      * @param r Number of successes.
      * @return Expected number of trials required to achieve 'r' successes.
      */
-    public double negativeBinomialExpectedValue(double p, int r){
+    public double negativeBinomialExpectedValue(double p, int r) {
         return r / p;
     }
 
@@ -416,7 +416,7 @@ public class StatsLibrary {
      * @param r Number of successes required.
      * @return Variance of the number of trials required to achieve 'r' successes.
      */
-    public double negativeBinomialVariance(double p, int r){
+    public double negativeBinomialVariance(double p, int r) {
         return (r * (1 - p)) / Math.pow(p, 2);
     }
 
