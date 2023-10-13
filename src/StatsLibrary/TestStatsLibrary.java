@@ -53,6 +53,11 @@ public class TestStatsLibrary {
 
         double hypergeometricDistributionResults = test.hypergeometricDistribution(5, 4, 10, 4);
 
+        double negativeBinomialDistributionResults = test.negativeBinomialDistribution(.1, 1, 2);
+        double negativeBinomialDistributionExpectedValueResults = test.negativeBinomialExpectedValue(.1, 1);
+        double negativeBinomialDistributionVarianceResults = test.negativeBinomialVariance(.1, 1);
+
+
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
         System.out.println("The standard deviation of the test numbers: " + standardDeviation);
@@ -84,6 +89,10 @@ public class TestStatsLibrary {
         System.out.println("The Geometric Distribution is: " + geometricDistributionResults);
 
         System.out.println("This is the Hypergeometric Distribution: " + hypergeometricDistributionResults);
+
+        System.out.println("The Negative Binomial Distribution is: " + negativeBinomialDistributionResults);
+        System.out.println("The Negative Binomial Expected Value is: " + negativeBinomialDistributionExpectedValueResults);
+        System.out.println("The Negative Binomial Variance is: " + negativeBinomialDistributionVarianceResults);
 
     }
 }

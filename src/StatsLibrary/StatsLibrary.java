@@ -382,5 +382,42 @@ public class StatsLibrary {
 
     }
 
+    /**
+     * Calculate the probability of a negative binomial distribution.
+     *
+     * @param p Probability of success in each trial.
+     * @param r Number of successes.
+     * @param y Total number of trials.
+     * @return Probability of getting 'r' successes in 'y' trials.
+     */
+    public double negativeBinomialDistribution(double p, int r, int y){
+        double q = 1 - p;
+
+        double combination = combinations((y - 1), (r - 1)).doubleValue();
+
+        return combination * Math.pow(p, r) * Math.pow(q, (y - r));
+    }
+
+    /**
+     * Calculate the expected value of a negative binomial distribution.
+     *
+     * @param p Probability of success in each trial.
+     * @param r Number of successes.
+     * @return Expected number of trials required to achieve 'r' successes.
+     */
+    public double negativeBinomialExpectedValue(double p, int r){
+        return r / p;
+    }
+
+    /**
+     * Calculate the variance of a negative binomial distribution.
+     *
+     * @param p Probability of success in each trial.
+     * @param r Number of successes required.
+     * @return Variance of the number of trials required to achieve 'r' successes.
+     */
+    public double negativeBinomialVariance(double p, int r){
+        return (r * (1 - p)) / Math.pow(p, 2);
+    }
 
 }
