@@ -57,6 +57,7 @@ public class TestStatsLibrary {
         double negativeBinomialDistributionExpectedValueResults = test.negativeBinomialExpectedValue(.1, 1);
         double negativeBinomialDistributionVarianceResults = test.negativeBinomialVariance(.1, 1);
 
+        double poissonDistributionResults = test.poissonDistribution(2, 4);
 
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
@@ -93,6 +94,8 @@ public class TestStatsLibrary {
         System.out.println("The Negative Binomial Distribution is: " + negativeBinomialDistributionResults);
         System.out.println("The Negative Binomial Expected Value is: " + negativeBinomialDistributionExpectedValueResults);
         System.out.println("The Negative Binomial Variance is: " + negativeBinomialDistributionVarianceResults);
+
+        System.out.println("The Poisson Distribution is: " + poissonDistributionResults);
 
     }
 }

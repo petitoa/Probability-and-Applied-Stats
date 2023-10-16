@@ -420,4 +420,19 @@ public class StatsLibrary {
         return (r * (1 - p)) / Math.pow(p, 2);
     }
 
+    /**
+     * Calculates the Poisson distribution probability for a given lambda and value y.
+     *
+     * @param lambda The mean rate.
+     * @param y      The desired value for which the probability is calculated.
+     * @return The Poisson distribution probability for the given lambda and y.
+     */
+    public double poissonDistribution(double lambda, int y) {
+        double numerator = Math.pow(lambda, y);
+        double denominator = factorial(y).doubleValue();
+
+        double e = Math.E;
+
+        return (numerator / denominator) * Math.pow(e, -lambda);
+    }
 }
