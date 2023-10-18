@@ -435,4 +435,34 @@ public class StatsLibrary {
 
         return (numerator / denominator) * Math.pow(e, -lambda);
     }
+
+    /**
+     * Calculates the percentage of data within a specified range using Chebyshev's theorem.
+     *
+     * @param upperBound The upper bound of the desired range.
+     * @param lowerBound The lower bound of the desired range.
+     * @param mean       The mean (average) of the data.
+     * @param stdDev     The standard deviation of the data.
+     * @return The percentage of data within the specified range.
+     * @throws IllegalArgumentException If the range is not symmetrical around the mean or if 'k' is not greater than one.
+     */
+    public double chebyshevs(double upperBound, double lowerBound, double mean, double stdDev) {
+        double meanMinusLower = mean - lowerBound;
+        double upperMinusMean = upperBound - mean;
+
+        // Make sure they're symmetrical
+        if (meanMinusLower == upperMinusMean) {
+            double k = meanMinusLower / stdDev;
+
+            // Check if k is greater than one
+            if (k > 1) {
+                return 1 - (1 / Math.pow(k, 2));
+            } else {
+                throw new IllegalArgumentException("The value of 'k' must be greater than one for Chebyshev's theorem.");
+            }
+        } else {
+            throw new IllegalArgumentException("The provided range is not symmetrical around the mean. Chebyshev's theorem is not applicable.");
+        }
+
+    }
 }

@@ -59,6 +59,8 @@ public class TestStatsLibrary {
 
         double poissonDistributionResults = test.poissonDistribution(2, 4);
 
+        double chebyshevsResults = test.chebyshevs(179, 123, 151, 14);
+
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
         System.out.println("The standard deviation of the test numbers: " + standardDeviation);
@@ -96,6 +98,8 @@ public class TestStatsLibrary {
         System.out.println("The Negative Binomial Variance is: " + negativeBinomialDistributionVarianceResults);
 
         System.out.println("The Poisson Distribution is: " + poissonDistributionResults);
+
+        System.out.println("The Chebyshev's result is: " + chebyshevsResults);
 
     }
 }
