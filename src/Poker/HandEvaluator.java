@@ -310,23 +310,13 @@ public class HandEvaluator {
     }
 
     /**
-     * Determines if a poker hand contains a high card (Ace is the highest card).
+     * Determines if a poker hand contains high card.
      *
      * @param hand The poker hand to check for a high card.
-     * @return true if the hand contains a high card, otherwise false.
+     * @return true if the hand contains only a high card, otherwise false.
      */
     public boolean hasHighCard(ArrayList<Card> hand) {
-        ArrayList<Integer> valuesEncountered = new ArrayList<>();
-
-        for (Card card : hand) {
-            int value = card.getValue(); // Collect card values, not suits
-            valuesEncountered.add(value);
-        }
-
-        Collections.sort(valuesEncountered);
-
-        // Check if the highest card value is Ace (value 12)
-        return valuesEncountered.get(valuesEncountered.size() - 1) == 12;
+        return !hasPair(hand) && !hasThreeOfAKind(hand) && !hasFourOfAKind(hand) && !hasStraight(hand) && !hasFlush(hand) && !hasFullHouse(hand);
     }
 
     /**
