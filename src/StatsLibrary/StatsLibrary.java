@@ -398,6 +398,37 @@ public class StatsLibrary {
     }
 
     /**
+     * Calculates the expected value (mean) of a Hypergeometric Distribution.
+     *
+     * @param totalPop    The total population you are choosing from (N).
+     * @param selectedPop The selected population (n).
+     * @param r           Available type 1 items.
+     * @return The expected value of the hypergeometric distribution.
+     */
+    public double hypergeometricDistributionExpectedValue(int selectedPop, int totalPop, int r) {
+        int numerator = selectedPop * r;
+        return divide(numerator, totalPop);
+
+    }
+
+    /**
+     * Calculates the variance of a Hypergeometric Distribution.
+     *
+     * @param totalPop    The total population you are choosing from (N).
+     * @param selectedPop The selected population (n).
+     * @param r           Available type 1 items.
+     * @return The variance of the hypergeometric distribution.
+     */
+    public double hypergeometricDistributionVariance(int selectedPop, int totalPop, int r) {
+        double term2 = divide(r, totalPop);
+        double term3 = divide(totalPop - r, totalPop);
+        double term4 = divide(totalPop - selectedPop, totalPop - 1);
+
+        return selectedPop * term2 * term3 * term4;
+
+    }
+
+    /**
      * Calculate the probability of a negative binomial distribution.
      *
      * @param p Probability of success in each trial.

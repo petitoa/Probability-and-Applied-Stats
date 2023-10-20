@@ -52,6 +52,8 @@ public class TestStatsLibrary {
         double geometricDistributionResults = test.geometricDistribution(.2, 8);
 
         double hypergeometricDistributionResults = test.hypergeometricDistribution(5, 4, 10, 4);
+        double hypergeometricDistributionExpectedValueResults = test.hypergeometricDistributionExpectedValue(4, 10, 5);
+        double hypergeometricDistributionVarianceResults = test.hypergeometricDistributionVariance(4, 10, 5);
 
         double negativeBinomialDistributionResults = test.negativeBinomialDistribution(.1, 1, 2);
         double negativeBinomialDistributionExpectedValueResults = test.negativeBinomialExpectedValue(.1, 1);
@@ -83,15 +85,17 @@ public class TestStatsLibrary {
         System.out.println("The conditional probability of P(A and B) & P(B)? " + conditionalProbabilityResults);
         System.out.println("The Bayes Theorem result is? " + bayesTheoremResults);
 
+        System.out.println("The Binomial Distribution is: " + binomialDistributionResults);
         System.out.println("The Binomial Distribution Expected Value is: " + binomialExpectedValueResults);
         System.out.println("The Binomial Distribution Variance is: " + binomialVarianceResults);
-        System.out.println("The Binomial Distribution is: " + binomialDistributionResults);
 
+        System.out.println("The Geometric Distribution: " + geometricDistributionResults);
         System.out.println("The Geometric Distribution Expected Value is: " + geometricExpectedValueResults);
         System.out.println("The Geometric Distribution Variance is: " + geometricVarianceResults);
-        System.out.println("The Geometric Distribution is: " + geometricDistributionResults);
 
         System.out.println("This is the Hypergeometric Distribution: " + hypergeometricDistributionResults);
+        System.out.println("This is the Hypergeometric Distribution Expected Value: " + hypergeometricDistributionExpectedValueResults);
+        System.out.println("This is the Hypergeometric Distribution Variance: " + hypergeometricDistributionVarianceResults);
 
         System.out.println("The Negative Binomial Distribution is: " + negativeBinomialDistributionResults);
         System.out.println("The Negative Binomial Expected Value is: " + negativeBinomialDistributionExpectedValueResults);
