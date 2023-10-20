@@ -59,6 +59,7 @@ public class MontyHall {
             //Switch to last option
             int chosenDoor2 = doorsChanged.get(0);
 
+            // If the second chosen door contains a car
             if (chosenDoor2 == 1) {
                 results.add(chosenDoor2);
             }

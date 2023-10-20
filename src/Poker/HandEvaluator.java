@@ -92,7 +92,7 @@ public class HandEvaluator {
 
 
     /**
-     * Draws a poker hand with the specified number of cards and assigns suit and value to each for display.
+     * Draws a poker hand with the specified number of cards and maps suit and value to each for display.
      *
      * @param handSize The number of cards to draw for the hand.
      * @return An ArrayList representing the drawn poker hand.
@@ -286,7 +286,7 @@ public class HandEvaluator {
         }
 
         // return true if both a pair and three of a kind with different values
-        return hasPair && hasThreeOfAKind && valueCounts.size() == 2;
+        return hasPair && hasThreeOfAKind && valueCounts.size() >= 2;
     }
 
     /**

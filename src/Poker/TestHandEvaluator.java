@@ -18,7 +18,7 @@ public class TestHandEvaluator {
         String testEvaluateHands = test.evaluateHands(200000, 5);
 
         System.out.println("This is a test hand: " + testHandDrawnResult);
-        System.out.println("This is the result of 10000 hands with 5 cards in hand: \n" + testEvaluateHands);
+        System.out.println("This is the result of 200000 hands with 5 cards in hand: \n" + testEvaluateHands);
 
     }
 }
