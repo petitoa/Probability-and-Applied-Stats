@@ -12,6 +12,21 @@ import java.util.Collections;
 public class StatsLibrary {
 
     /**
+     * A generic method to perform division operation and handle division by zero.
+     *
+     * @param numerator   The numerator of the division.
+     * @param denominator The denominator of the division.
+     * @return The result of the division.
+     * @throws ArithmeticException if division by zero is detected.
+     */
+    public double divide(double numerator, double denominator) {
+        if (denominator == 0) {
+            throw new ArithmeticException("Division by zero is undefined.");
+        }
+        return numerator / denominator;
+    }
+
+    /**
      * Calculates the mean of an ArrayList of numbers.
      *
      * @param userInputNumbers The ArrayList of numbers.
@@ -26,7 +41,7 @@ public class StatsLibrary {
         }
 
         //Storing value for clarity
-        double result = sum / userInputNumbers.size();
+        double result = divide(sum, userInputNumbers.size());
         return result;
     }
 
@@ -121,7 +136,7 @@ public class StatsLibrary {
         }
 
         //Divide the sum by one less than the number of data points and return square root of result
-        return Math.sqrt(sum / sizeMinus1);
+        return Math.sqrt(divide(sum, sizeMinus1));
     }
 
     /**
@@ -259,7 +274,7 @@ public class StatsLibrary {
      * @return The conditional probability P(A|B).
      */
     public double conditionalProbability(double aAndB, double b) {
-        return aAndB / b;
+        return divide(aAndB, b);
     }
 
     /**
@@ -271,7 +286,7 @@ public class StatsLibrary {
      * @return The probability of A given B using Bayes' Theorem.
      */
     public double bayesTheorem(double a, double b, double bGivenA) {
-        return bGivenA * a / b;
+        return bGivenA * divide(a, b);
     }
 
     /**
@@ -345,7 +360,7 @@ public class StatsLibrary {
      * @return The expected value (mean) of the geometric distribution.
      */
     public double geometricExpectedValue(double p) {
-        return 1 / p;
+        return divide(1, p);
     }
 
     /**
@@ -358,7 +373,7 @@ public class StatsLibrary {
         // calculate p' known as q
         double q = 1 - p;
 
-        return q / Math.pow(p, 2);
+        return divide(q, Math.pow(p, 2));
     }
 
     /**
@@ -377,7 +392,7 @@ public class StatsLibrary {
         double totalPopChooseSelectedPop = combinations(totalPop, selectedPop).doubleValue();
 
 
-        return rChooseY * secondNumerator / totalPopChooseSelectedPop;
+        return rChooseY * divide(secondNumerator, totalPopChooseSelectedPop);
 
 
     }
@@ -406,7 +421,7 @@ public class StatsLibrary {
      * @return Expected number of trials required to achieve 'r' successes.
      */
     public double negativeBinomialExpectedValue(double p, int r) {
-        return r / p;
+        return divide(r, p);
     }
 
     /**
@@ -417,7 +432,7 @@ public class StatsLibrary {
      * @return Variance of the number of trials required to achieve 'r' successes.
      */
     public double negativeBinomialVariance(double p, int r) {
-        return (r * (1 - p)) / Math.pow(p, 2);
+        return divide((r * (1 - p)), Math.pow(p, 2));
     }
 
     /**
@@ -433,7 +448,7 @@ public class StatsLibrary {
 
         double e = Math.E;
 
-        return (numerator / denominator) * Math.pow(e, -lambda);
+        return divide(numerator, denominator) * Math.pow(e, -lambda);
     }
 
     /**
@@ -452,11 +467,11 @@ public class StatsLibrary {
 
         // Make sure they're symmetrical
         if (meanMinusLower == upperMinusMean) {
-            double k = meanMinusLower / stdDev;
+            double k = divide(meanMinusLower, stdDev);
 
             // Check if k is greater than one
             if (k > 1) {
-                return 1 - (1 / Math.pow(k, 2));
+                return 1 - divide(1, Math.pow(k, 2));
             } else {
                 throw new IllegalArgumentException("The value of 'k' must be greater than one for Chebyshev's theorem.");
             }
