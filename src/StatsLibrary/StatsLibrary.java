@@ -40,7 +40,6 @@ public class StatsLibrary {
 
         }
 
-        //Storing value for clarity
         double result = divide(sum, userInputNumbers.size());
         return result;
     }
@@ -56,12 +55,13 @@ public class StatsLibrary {
         int size = userInputNumbers.size();
         double median;
 
-        //if array is even find average of middle values else get middle value
+        // if array is even find average of middle values
         if (size % 2 == 0) {
             double middle1 = userInputNumbers.get((size / 2) + 1);
             double middle2 = userInputNumbers.get((size / 2) - 1);
             median = (middle1 + middle2) / 2;
         } else {
+            // get middle value
             median = userInputNumbers.get(size / 2);
         }
         return median;
@@ -90,11 +90,13 @@ public class StatsLibrary {
 
             if (count > highestCount) {
                 highestCount = count;
-                modes.clear(); // Clear the list for higher count
-                modes.add(currentNumber); // Add the new mode
+                // Clear list for the higher count
+                modes.clear();
+                // Add the new mode
+                modes.add(currentNumber);
                 //if the there is a tie between the highest count and count / it's not a duplicate mode
             } else if (count == highestCount && !modes.contains(currentNumber)) {
-                modes.add(currentNumber); // Add to list of modes
+                modes.add(currentNumber);
             }
         }
 
