@@ -63,18 +63,20 @@ public class TestStatsLibrary {
 
         double chebyshevsResults = test.chebyshevs(179, 123, 151, 14);
 
+        System.out.println("\nChapter 1");
         System.out.println("The mean of the test numbers: " + meanResults);
         System.out.println("The median of the test numbers: " + medianResults);
         System.out.println("The standard deviation of the test numbers: " + standardDeviation);
-        System.out.println("The factorial of the test number: " + factorialResults);
-        System.out.println("The number of the combination n objects r times: " + combinationResults);
-        System.out.println("The number of permutations in n objects with r objects selected: " + permutationResults);
-
         if (Double.isNaN(modeResults)) {
             System.out.println("There is no mode for these test numbers");
         } else {
             System.out.println("The mode for the test numbers: " + modeResults);
         }
+
+        System.out.println("\nChapter 2");
+        System.out.println("The factorial of the test number: " + factorialResults);
+        System.out.println("The number of the combination n objects r times: " + combinationResults);
+        System.out.println("The number of permutations in n objects with r objects selected: " + permutationResults);
 
         System.out.println("The independent intersection of the test numbers: " + independentIntersectionResults);
         System.out.println("The dependent intersection of the test numbers: " + dependentIntersectionResults);
@@ -85,24 +87,31 @@ public class TestStatsLibrary {
         System.out.println("The conditional probability of P(A and B) & P(B)? " + conditionalProbabilityResults);
         System.out.println("The Bayes Theorem result is? " + bayesTheoremResults);
 
+        System.out.println("\nChapter 3");
+        System.out.println("Binomial Distribution");
         System.out.println("The Binomial Distribution is: " + binomialDistributionResults);
         System.out.println("The Binomial Distribution Expected Value is: " + binomialExpectedValueResults);
         System.out.println("The Binomial Distribution Variance is: " + binomialVarianceResults);
 
+        System.out.println("\nGeometric Distribution");
         System.out.println("The Geometric Distribution: " + geometricDistributionResults);
         System.out.println("The Geometric Distribution Expected Value is: " + geometricExpectedValueResults);
         System.out.println("The Geometric Distribution Variance is: " + geometricVarianceResults);
 
+        System.out.println("\nHypergeometric Distribution");
         System.out.println("This is the Hypergeometric Distribution: " + hypergeometricDistributionResults);
         System.out.println("This is the Hypergeometric Distribution Expected Value: " + hypergeometricDistributionExpectedValueResults);
         System.out.println("This is the Hypergeometric Distribution Variance: " + hypergeometricDistributionVarianceResults);
 
+        System.out.println("\nNegative Binomial Distribution");
         System.out.println("The Negative Binomial Distribution is: " + negativeBinomialDistributionResults);
         System.out.println("The Negative Binomial Expected Value is: " + negativeBinomialDistributionExpectedValueResults);
         System.out.println("The Negative Binomial Variance is: " + negativeBinomialDistributionVarianceResults);
 
+        System.out.println("\nPoisson Distribution");
         System.out.println("The Poisson Distribution is: " + poissonDistributionResults);
 
+        System.out.println("\nChebyshev's Theorem");
         System.out.println("The Chebyshev's result is: " + chebyshevsResults);
 
     }
