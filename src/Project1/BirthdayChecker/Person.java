@@ -1,4 +1,4 @@
-package BirthdayChecker;
+package Project1.BirthdayChecker;
 
 import java.util.ArrayList;
 import java.util.Random;

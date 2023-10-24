@@ -1,4 +1,4 @@
-package CarFactory;
+package Project1.CarFactory;
 
 import java.util.ArrayList;
 import java.util.Random;

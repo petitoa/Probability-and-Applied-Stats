@@ -1,4 +1,4 @@
-package StatsLibrary;
+package Project1.StatsLibrary;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

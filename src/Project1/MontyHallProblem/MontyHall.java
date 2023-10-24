@@ -1,4 +1,4 @@
-package MontyHallProblem;
+package Project1.MontyHallProblem;
 
 import java.util.ArrayList;
 import java.util.Collections;

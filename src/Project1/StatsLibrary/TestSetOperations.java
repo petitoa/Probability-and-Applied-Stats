@@ -1,4 +1,4 @@
-package StatsLibrary;
+package Project1.StatsLibrary;
 
 import java.util.ArrayList;
 

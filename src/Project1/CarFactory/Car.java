@@ -1,4 +1,4 @@
-package CarFactory;
+package Project1.CarFactory;
 
 /**
  * The Car class represents a car object with various properties.

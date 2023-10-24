@@ -1,4 +1,4 @@
-package BirthdayChecker;
+package Project1.BirthdayChecker;
 
 /**
  * A test class for evaluating and testing the functionality of the {@link Person} class to solve the birthday problem.

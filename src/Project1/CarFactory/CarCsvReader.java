@@ -1,4 +1,4 @@
-package CarFactory;
+package Project1.CarFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
