@@ -12,7 +12,7 @@ import java.util.Collections;
 public class StatsLibrary {
 
     /**
-     * A generic method to perform division operation and handle division by zero.
+     * A method to perform division operation and handle division by zero.
      *
      * @param numerator   The numerator of the division.
      * @param denominator The denominator of the division.
@@ -24,6 +24,61 @@ public class StatsLibrary {
             throw new ArithmeticException("Division by zero is undefined.");
         }
         return numerator / denominator;
+    }
+
+    /**
+     * A generic method that checks to make sure passed values are non-negative.
+     *
+     * @param values The parameters that you want to check.
+     * @throws IllegalArgumentException If negative values are detected.
+     */
+    @SafeVarargs
+    public final <T extends Number> void checkNonNegative(T... values) {
+        for (T value : values) {
+            if (value.doubleValue() < 0) {
+                throw new IllegalArgumentException("Input and output values must be non-negative.");
+            }
+        }
+    }
+
+    /**
+     * A generic method that checks to make sure passed values are in bounds [0, 1].
+     * Used in {@link #combinations(int, int)} and {@link #permutations(int, int)}}.
+     *
+     * @param values The parameters that you want to check.
+     * @throws IllegalArgumentException If out of bound value detected.
+     */
+    @SafeVarargs
+    public final <T extends Number> void checkInputInBound(T... values) {
+        for (T value : values) {
+            if (value.doubleValue() < 0 || value.doubleValue() > 1) {
+                throw new IllegalArgumentException("Input values must be non-negative.");
+            }
+        }
+    }
+
+    /**
+     * Checks if a double result is within the distribution bounds [0, 1].
+     *
+     * @param result The double value to be checked.
+     * @throws IllegalArgumentException If the result is outside the bounds [0, 1].
+     */
+    public void checkDoubleResultInBound(double result) {
+        if (result < 0 || result > 1) {
+            throw new IllegalArgumentException("Result is out of bounds [0, 1]");
+        }
+    }
+
+    /**
+     * Checks if BigInteger is non-negative.
+     *
+     * @param result The BigInteger value to be checked.
+     * @throws IllegalArgumentException If the result is negative.
+     */
+    public void checkBigIntegerInBound(BigInteger result) {
+        if (result.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Output values must be non-negative.");
+        }
     }
 
     /**
@@ -94,13 +149,13 @@ public class StatsLibrary {
                 modes.clear();
                 // Add the new mode
                 modes.add(currentNumber);
-                //if the there is a tie between the highest count and count / it's not a duplicate mode
+                //tie between the highest count and count / it's not a duplicate mode
             } else if (count == highestCount && !modes.contains(currentNumber)) {
                 modes.add(currentNumber);
             }
         }
 
-        //If there are no numbers that occur more than once or 2 numbers occur the same amount of times greater than 1 return not a number (no mode)
+        //No numbers that occur more than once or 2 numbers occur the same amount of times greater than 1
         if (highestCount == 0 || modes.size() > 1) {
             return Double.NaN;
         }
@@ -116,6 +171,12 @@ public class StatsLibrary {
      * @return The standard deviation value.
      */
     public double standardDeviation(ArrayList<Double> userInputNumbers) {
+
+        //check inputs are non-negative
+        for (double number : userInputNumbers) {
+            checkNonNegative(number);
+        }
+
         double mean = findMean(userInputNumbers);
 
         ArrayList<Double> subtractMean = new ArrayList<>();
@@ -137,7 +198,10 @@ public class StatsLibrary {
             sum = sum + singleElement;
         }
 
-        //Divide the sum by one less than the number of data points and return square root of result
+        // Check result is non-negative.
+        checkNonNegative(Math.sqrt(divide(sum, sizeMinus1)));
+
+        //Calculate result
         return Math.sqrt(divide(sum, sizeMinus1));
     }
 
@@ -148,6 +212,8 @@ public class StatsLibrary {
      * @return The factorial value as a BigInteger.
      */
     public BigInteger factorial(int num) {
+        //check input greater than zero
+        checkNonNegative(num);
         if (num == 0) {
             return BigInteger.ONE;
         } else {
@@ -155,6 +221,8 @@ public class StatsLibrary {
             for (int i = 1; i <= num; i++) {
                 factorial = factorial.multiply(BigInteger.valueOf(i));
             }
+            //check result greater than zero
+            checkBigIntegerInBound(factorial);
             return factorial;
         }
     }
@@ -167,6 +235,8 @@ public class StatsLibrary {
      * @return The number of combinations as a BigInteger.
      */
     public BigInteger combinations(int objects, int times) {
+        //Make sure inputs are non-negative
+        checkNonNegative(objects, times);
 
         BigInteger objectsFactorial = factorial(objects);
         BigInteger timesFactorial = factorial(times);
@@ -178,6 +248,8 @@ public class StatsLibrary {
         BigInteger numerator = objectsFactorial;
         BigInteger denominator = timesFactorial.multiply(objectsMinusTimesFactorial);
 
+        // Check result is greater than zero
+        checkBigIntegerInBound(numerator.divide(denominator));
 
         return numerator.divide(denominator);
     }
@@ -190,6 +262,8 @@ public class StatsLibrary {
      * @return The number of permutations as a BigInteger.
      */
     public BigInteger permutations(int objects, int objectsSelected) {
+        //Make sure inputs are non-negative
+        checkNonNegative(objects, objectsSelected);
 
         BigInteger objectsFactorial = factorial(objects);
 
@@ -199,6 +273,9 @@ public class StatsLibrary {
 
         BigInteger numerator = objectsFactorial;
         BigInteger denominator = denominatorFactorial;
+
+        // Check result is greater than zero
+        checkBigIntegerInBound(numerator.divide(denominator));
 
         return numerator.divide(denominator);
     }
@@ -276,6 +353,12 @@ public class StatsLibrary {
      * @return The conditional probability P(A|B).
      */
     public double conditionalProbability(double aAndB, double b) {
+        // Check inputs in bounds
+        checkInputInBound(aAndB, b);
+
+        // Check result is in bounds.
+        checkDoubleResultInBound(divide(aAndB, b));
+
         return divide(aAndB, b);
     }
 
@@ -288,6 +371,12 @@ public class StatsLibrary {
      * @return The probability of A given B using Bayes' Theorem.
      */
     public double bayesTheorem(double a, double b, double bGivenA) {
+        // Check inputs in bounds
+        checkInputInBound(a, b, bGivenA);
+
+        // Check result is in bounds.
+        checkDoubleResultInBound(bGivenA * divide(a, b));
+
         return bGivenA * divide(a, b);
     }
 
@@ -300,6 +389,9 @@ public class StatsLibrary {
      * @return The probability of getting 'y' successful outcomes in 'n' trials with probability 'p'.
      */
     public double binomialDistribution(double p, int n, int y) {
+        //check inputs are non negative
+        checkNonNegative(p, n, y);
+
         // calculate p' known as q
         double q = 1 - p;
 
@@ -308,6 +400,9 @@ public class StatsLibrary {
 
         double pExponentY = Math.pow(p, y);
         double qExponentNMinusY = Math.pow(q, n - y);
+
+        // Check result is in bound
+        checkDoubleResultInBound(combinations * pExponentY * qExponentNMinusY);
 
         // Multiply to get Binomial Distribution
         return combinations * pExponentY * qExponentNMinusY;
@@ -336,6 +431,12 @@ public class StatsLibrary {
         // calculate p' known as q
         double q = 1 - p;
 
+        // Check input is non-negative
+        checkNonNegative(n, p);
+
+        // Check result is non-negative
+        checkNonNegative(n * p * q);
+
         // calculate variance for binomial distribution
         return n * p * q;
     }
@@ -348,11 +449,19 @@ public class StatsLibrary {
      * @return The probability of getting the first success on the 'y'-th trial.
      */
     public double geometricDistribution(double p, int y) {
+        //check inputs are non-negative
+        checkNonNegative(p, y);
+
         // calculate p' known as q
         double q = 1 - p;
 
+        double result = Math.pow(q, y - 1) * p;
+
+        // Check result is in bound
+        checkDoubleResultInBound(result);
+
         // Geometric Distribution Formula
-        return Math.pow(q, y - 1) * p;
+        return result;
     }
 
     /**
@@ -375,6 +484,12 @@ public class StatsLibrary {
         // calculate p' known as q
         double q = 1 - p;
 
+        // Check input is non-negative
+        checkNonNegative(p);
+
+        // Check result is non-negative
+        checkNonNegative(divide(q, Math.pow(p, 2)));
+
         return divide(q, Math.pow(p, 2));
     }
 
@@ -388,11 +503,15 @@ public class StatsLibrary {
      * @return The Hypergeometric Distribution of the given variables.
      */
     public double hypergeometricDistribution(int r, int y, int totalPop, int selectedPop) {
+        //Check inputs are non-negative
+        checkNonNegative(r, y, totalPop, selectedPop);
 
         double rChooseY = combinations(r, y).doubleValue();
         double secondNumerator = combinations((totalPop - selectedPop), (selectedPop - y)).doubleValue();
         double totalPopChooseSelectedPop = combinations(totalPop, selectedPop).doubleValue();
 
+        // Check result is in bound
+        checkDoubleResultInBound(rChooseY * divide(secondNumerator, totalPopChooseSelectedPop));
 
         return rChooseY * divide(secondNumerator, totalPopChooseSelectedPop);
 
@@ -426,6 +545,12 @@ public class StatsLibrary {
         double term3 = divide(totalPop - r, totalPop);
         double term4 = divide(totalPop - selectedPop, totalPop - 1);
 
+        // Check input is non-negative
+        checkNonNegative(selectedPop, totalPop, r);
+
+        // Check result is non-negative
+        checkNonNegative(selectedPop * term2 * term3 * term4);
+
         return selectedPop * term2 * term3 * term4;
 
     }
@@ -439,11 +564,18 @@ public class StatsLibrary {
      * @return Probability of getting 'r' successes in 'y' trials.
      */
     public double negativeBinomialDistribution(double p, int r, int y) {
+        // Check inputs are non-negative
+        checkNonNegative(p, r, y);
+
         double q = 1 - p;
 
         double combination = combinations((y - 1), (r - 1)).doubleValue();
 
-        return combination * Math.pow(p, r) * Math.pow(q, (y - r));
+        // Check result is in bounds
+        double result = combination * Math.pow(p, r) * Math.pow(q, (y - r));
+        checkDoubleResultInBound(result);
+
+        return result;
     }
 
     /**
@@ -465,6 +597,12 @@ public class StatsLibrary {
      * @return Variance of the number of trials required to achieve 'r' successes.
      */
     public double negativeBinomialVariance(double p, int r) {
+        // Check input is non-negative
+        checkNonNegative(p, r);
+
+        // Check result is non-negative
+        checkNonNegative(divide((r * (1 - p)), Math.pow(p, 2)));
+
         return divide((r * (1 - p)), Math.pow(p, 2));
     }
 
@@ -476,12 +614,45 @@ public class StatsLibrary {
      * @return The Poisson distribution probability for the given lambda and y.
      */
     public double poissonDistribution(double lambda, int y) {
+
+        //Check inputs are non-negative
+        checkNonNegative(lambda, y);
+
         double numerator = Math.pow(lambda, y);
         double denominator = factorial(y).doubleValue();
 
         double e = Math.E;
 
+        // Check result is in bound.
+        checkDoubleResultInBound(divide(numerator, denominator) * Math.pow(e, -lambda));
+
         return divide(numerator, denominator) * Math.pow(e, -lambda);
+    }
+
+    /**
+     * Calculate the variance of a Poisson distribution.
+     *
+     * @param lambda The mean rate of the Poisson distribution.
+     * @return The variance of the Poisson distribution.
+     */
+    public double poissonDistributionVariance(double lambda) {
+        // Check result is non-negative
+        checkNonNegative(lambda);
+
+        return lambda;
+    }
+
+    /**
+     * Calculate the expected value of a Poisson distribution.
+     *
+     * @param lambda The mean rate of the Poisson distribution.
+     * @return The expected value of the Poisson distribution.
+     */
+    public double poissonDistributionExpectedValue(double lambda) {
+        // Check result is non-negative
+        checkNonNegative(lambda);
+
+        return lambda;
     }
 
     /**

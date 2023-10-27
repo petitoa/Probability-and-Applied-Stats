@@ -60,6 +60,8 @@ public class TestStatsLibrary {
         double negativeBinomialDistributionVarianceResults = test.negativeBinomialVariance(.1, 1);
 
         double poissonDistributionResults = test.poissonDistribution(2, 4);
+        double poissonDistributionExpectedResults = test.poissonDistributionExpectedValue(2);
+        double poissonDistributionVarianceResults = test.poissonDistributionVariance(2);
 
         double chebyshevsResults = test.chebyshevs(179, 123, 151, 14);
 
@@ -110,6 +112,8 @@ public class TestStatsLibrary {
 
         System.out.println("\nPoisson Distribution");
         System.out.println("The Poisson Distribution is: " + poissonDistributionResults);
+        System.out.println("The Poisson Distribution Expected Value is: " + poissonDistributionExpectedResults);
+        System.out.println("The Poisson Distribution Variance is: " + poissonDistributionVarianceResults);
 
         System.out.println("\nChebyshev's Theorem");
         System.out.println("The Chebyshev's result is: " + chebyshevsResults);

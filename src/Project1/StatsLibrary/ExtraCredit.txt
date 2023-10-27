@@ -2,4 +2,7 @@
     Generated JavaDocs for the full project can be found in the "JavaDocs" directory.
 2.) Created special function for division to account for division by zero for all cases of division
 3.) Added Expected Value and Variance for each distribution.
-4.) Checked for Cases where Chebyshev's Theorem is not applicable.
+4.) Checked for cases where Chebyshev's Theorem is not applicable.
+5.) Added method to make sure results are in bound [0, 1] and applied them to the applicable distributions.
+5.) Added method to make sure inputs are non-negative and applied them to the applicable distributions.
+6.) Added method to make sure inputs are in the proper bounds and applied it to appropriate distributions.
