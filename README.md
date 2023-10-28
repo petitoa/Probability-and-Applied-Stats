@@ -70,4 +70,4 @@ git clone https://github.com/petitoa/Probability-and-Applied-Stats.git
 - A comprehensive list of all the formulas covered in lectures and the textbook.
 
 ## Extra Credit Considerations
-Extra credit considerations can be found in [extracredit.txt](extracredit.txt)
+Extra credit considerations can be found in [extracredit.txt](src/Project1/extracredit.txt)
