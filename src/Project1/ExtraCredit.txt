@@ -2,7 +2,8 @@ All Programs
 1.) Generated full JavaDocs for all files in Project 1.
     Generated JavaDocs for the full project can be found in the "JavaDocs" directory.
 2.) Created written documentation for modifying output also, displays test output.
-    Written documentation can be found in the WrittenDocumentation Directory.
+    Written documentation can be found in the "WrittenDocumentation" Directory.
+3.) Wrote a README.md file for Project 1
 
 StatsLibrary
 2.) Created special function for division to account for division by zero for all cases of division
