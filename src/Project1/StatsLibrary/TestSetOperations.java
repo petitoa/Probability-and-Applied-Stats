@@ -33,7 +33,9 @@ public class TestSetOperations {
         ArrayList<String> intersectionResults = test.findIntersection(daysOfTheWeek, subsetA);
         ArrayList<String> complementResults = test.findComplement(daysOfTheWeek, subsetA);
 
-
+        System.out.println("Set Days of Week: " + daysOfTheWeek);
+        System.out.println("Subset A: " + subsetA);
+        System.out.println("\nSet Operations:");
         System.out.println("The union of both arrays: " + unionResults);
         System.out.println("The intersection of both arrays: " + intersectionResults);
         System.out.println("The complement of subset A: " + complementResults);
