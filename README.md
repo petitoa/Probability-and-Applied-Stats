@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository houses a collection of work related to the Probability and Applied statistics class and mini programming projects, completed as part of a university course. It includes Excel work, a formula sheet, a stats library, and several mini programming projects.
+This repository houses a collection of work related to the Probability and Applied Statistics class and mini programming projects, completed as part of a university course. It includes Excel work, a formula sheet, a stats library, and several mini programming projects.
 
 ## Table of Contents
 - [Built With](#built-with)
